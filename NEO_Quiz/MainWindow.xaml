@@ -1,0 +1,47 @@
+﻿<Window x:Class="NEO_Quiz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NEO_Quiz"
+        mc:Ignorable="d"
+        Title="NEO Quiz" Height="500" Width="600"
+        MinWidth="300" MinHeight="200"
+        WindowStyle="None"
+        WindowState="Maximized"
+        FontFamily="DejaVu Sans"
+        xmlns:p = "clr-namespace:NEO_Quiz.Properties">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="NEO Quiz" Grid.Column="1" Grid.ColumnSpan="3" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+               Width="Auto" Height="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+               FontSize="50" FontWeight="Bold" />
+
+        <Button Content="{x:Static p:Resources.BeginButton}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Grid.Row="2" Grid.ColumnSpan="3"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Width="Auto"
+                FontSize="38" FontWeight="Bold" Click="BeginButton_Clicked" />
+
+        <StackPanel Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="5" Width="Auto" Height="50" Orientation="Horizontal">
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" Height="Auto" Width="Auto" FontSize="22" Click="LanguageButton_Clicked">
+                <Image Name="LanguageButtonImage" Source="Resources\LangIcons\Polish.png"/>
+            </Button>
+            <Button Content="{x:Static p:Resources.SettingsButton}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" Height="Auto" Width="Auto" Padding="20,0" FontSize="22" Click="SettingsButton_Clicked"/>
+            <Button Content="{x:Static p:Resources.CloseButton}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" Height="Auto" Width="Auto" Padding="20,0" FontSize="22" Click="CloseButton_Clicked"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
