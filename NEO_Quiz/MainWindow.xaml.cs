@@ -38,10 +38,11 @@ namespace NEO_Quiz
 
         public void BeginButton_Clicked(object sender, RoutedEventArgs e)
         {
-            QuizManager manager = new QuizManager(settingsManager.GetSettings());
+            QuizManager manager = new QuizManager(settingsManager);
+            manager.Begin();
+
             new QuizWindow(manager).Show();
         }
-
         private void SettingsButton_Clicked(object sender, RoutedEventArgs e)
         {
             if(Application.Current.Windows.OfType<SettingsWindow>().Any())
@@ -53,7 +54,6 @@ namespace NEO_Quiz
                 new SettingsWindow().Show();
             }
         }
-
         private void LanguageButton_Clicked(object sender, RoutedEventArgs e)
         {
             AppSettingsModel settings = settingsManager.GetSettings();
@@ -81,12 +81,10 @@ namespace NEO_Quiz
             new MainWindow().Show();
             Close();
         }
-
         private void CloseButton_Clicked(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
 
         protected override void OnClosed(EventArgs e)
         {

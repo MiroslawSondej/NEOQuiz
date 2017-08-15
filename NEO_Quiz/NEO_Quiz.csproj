@@ -57,7 +57,11 @@
     <Compile Include="Dialogs\CancelQuizDialog.xaml.cs">
       <DependentUpon>CancelQuizDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\QuizWonDialog.xaml.cs">
+      <DependentUpon>QuizWonDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EnumDescriptionTypeConverter.cs" />
+    <Compile Include="ITimerListener.cs" />
     <Compile Include="LocalizedDescriptionAttribute.cs" />
     <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Properties\Resources.en.Designer.cs">
@@ -74,6 +78,10 @@
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Dialogs\CancelQuizDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\QuizWonDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

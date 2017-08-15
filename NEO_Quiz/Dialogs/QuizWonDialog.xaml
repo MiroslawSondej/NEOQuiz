@@ -1,0 +1,51 @@
+﻿<Window x:Class="NEO_Quiz.Dialogs.QuizWonDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NEO_Quiz.Dialogs"
+                mc:Ignorable="d"
+        WindowStyle="None"
+        FontFamily="DejaVu Sans"
+        xmlns:p="clr-namespace:NEO_Quiz.Properties"    
+        Height="300" Width="500"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">
+            <Label.Content>
+                <AccessText TextWrapping="Wrap" Text="{x:Static p:Resources.QuizWonInfo}" />
+            </Label.Content>
+        </Label>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+            <Label x:Name="TimeInfoLabel"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">
+                <Label.Content>
+                    <AccessText TextWrapping="Wrap" Text="{x:Static p:Resources.QuizWonTimeInfo}" />
+                </Label.Content>
+            </Label>
+            <Label x:Name="CorrectInfoLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Visibility="Collapsed">
+                <Label.Content>
+                    <AccessText TextWrapping="Wrap" Text="{x:Static p:Resources.QuizWonAnswerCorrect}" />
+                </Label.Content>
+            </Label>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">
+                <Label.Content>
+                    <AccessText x:Name="AdditionalInfoLabel"  TextWrapping="Wrap" Text=""/>
+                </Label.Content>
+            </Label>
+        </StackPanel>
+        
+
+        <Button Content="Ok" HorizontalAlignment="Stretch" Margin="20, 30" VerticalAlignment="Stretch" FontSize="20" Grid.Column="0" Grid.Row="2" Click="OkButton_Clicked" />
+
+    </Grid>
+</Window>

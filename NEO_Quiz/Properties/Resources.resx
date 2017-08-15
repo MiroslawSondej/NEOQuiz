@@ -186,4 +186,16 @@
   <data name="YesButton" xml:space="preserve">
     <value>Tak</value>
   </data>
+  <data name="QuizLoseInfo" xml:space="preserve">
+    <value>Tym razem się nie udało. Spróbuj ponownie!</value>
+  </data>
+  <data name="QuizWonInfo" xml:space="preserve">
+    <value>Gratulujemy wygranej!</value>
+  </data>
+  <data name="QuizWonAnswerCorrect" xml:space="preserve">
+    <value>Poprawnych odpowiedzi:</value>
+  </data>
+  <data name="QuizWonTimeInfo" xml:space="preserve">
+    <value>Twój czas:</value>
+  </data>
 </root>

@@ -7,6 +7,7 @@ using System.IO;
 using System.Xml;
 
 using NEO_Quiz.Models;
+using System.Text.RegularExpressions;
 
 namespace NEO_Quiz
 {
@@ -128,7 +129,7 @@ namespace NEO_Quiz
 
             return true;
         }
-        public string[] GetResourceFilesList()
+        private string[] GetResourceFilesList()
         {
             string[] files = Directory.GetFiles(DEFAULT_RESOURCE_PATH);
             return files;
@@ -228,6 +229,22 @@ namespace NEO_Quiz
             }
 
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
+        }
+        public string[] GetQuestionsFileList()
+        {
+            string currentLanguage = "pl";
+            if (settings.Language == "English") currentLanguage = "eng";
+
+            List<string> fileList = new List<string>();
+            
+            foreach(string file in settings.ResourcesFile)
+            {
+                if(Regex.IsMatch(file, ".+(." + currentLanguage + ".xml)"))
+                {
+                    fileList.Add(file);
+                }
+            }
+            return fileList.ToArray();
         }
     }
 }

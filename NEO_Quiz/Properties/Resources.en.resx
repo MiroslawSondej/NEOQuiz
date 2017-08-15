@@ -180,4 +180,16 @@
   <data name="YesButton" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="QuizLoseInfo" xml:space="preserve">
+    <value>Unfortunately, you lost. Try again!</value>
+  </data>
+  <data name="QuizWonInfo" xml:space="preserve">
+    <value>Congratulation. You won!</value>
+  </data>
+  <data name="QuizWonAnswerCorrect" xml:space="preserve">
+    <value>Correct answers:</value>
+  </data>
+  <data name="QuizWonTimeInfo" xml:space="preserve">
+    <value>Your time:</value>
+  </data>
 </root>

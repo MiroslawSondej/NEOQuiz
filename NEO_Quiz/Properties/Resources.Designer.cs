@@ -196,11 +196,47 @@ namespace NEO_Quiz.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Tym razem się nie udało. Spróbuj ponownie!.
+        /// </summary>
+        public static string QuizLoseInfo {
+            get {
+                return ResourceManager.GetString("QuizLoseInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Tryb quizu:.
         /// </summary>
         public static string QuizModeLabel {
             get {
                 return ResourceManager.GetString("QuizModeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Poprawnych odpowiedzi:.
+        /// </summary>
+        public static string QuizWonAnswerCorrect {
+            get {
+                return ResourceManager.GetString("QuizWonAnswerCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Gratulujemy wygranej!.
+        /// </summary>
+        public static string QuizWonInfo {
+            get {
+                return ResourceManager.GetString("QuizWonInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Twój czas:.
+        /// </summary>
+        public static string QuizWonTimeInfo {
+            get {
+                return ResourceManager.GetString("QuizWonTimeInfo", resourceCulture);
             }
         }
         
