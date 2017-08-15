@@ -26,6 +26,7 @@ namespace NEO_Quiz
 
         List<QuestionModel> QuestionList;
         List<QuestionModel> QuestionUsed;
+        QuestionModel currentQuestion;
 
         public int CurrentQuestionNumber { get; private set; }
         public int CorrectQuestionCount { get; private set; }
@@ -104,12 +105,10 @@ namespace NEO_Quiz
 
             int id = new Random(DateTime.Now.Second).Next(0, QuestionList.Count);
 
-            QuestionModel currentQuestion = QuestionList[id];
+            currentQuestion = QuestionList[id];
             QuestionList.RemoveAt(id);
-            QuestionUsed.Add(currentQuestion);
 
             CurrentQuestionNumber++;
-
             return currentQuestion;
         }
         public AppSettingsModel.EQuizMode GetMode()
@@ -124,41 +123,62 @@ namespace NEO_Quiz
         {
             return settings;
         }
-        public void OnCorrect()
+        public bool CheckAnswer(int answer)
         {
-            if(QuestionUsed.Count > 0)
-            {
-                QuestionUsed.RemoveAt(QuestionUsed.Count - 1);
-            }
-            CorrectQuestionCount++;
-        }
+            bool result = false;
 
+            if (currentQuestion.CorrectAnswer == answer)
+            {
+                CorrectQuestionCount++;
+                result = true;
+            }
+            else
+            {
+                QuestionUsed.Add(currentQuestion);
+                result = false;
+            }
+
+            UpdateState();
+            return result;
+        }
         private void UpdateState()
         {
             if(settings.QuizMode == AppSettingsModel.EQuizMode.QUESTION_MAX)
             {
-               // if(CurrentQuestionNumber >= )
+               if(CurrentQuestionNumber + 1 >= settings.QuestionsCount)
+                {
+                    QuizState = EQuizState.WON;
+                }
             }
             else if (settings.QuizMode == AppSettingsModel.EQuizMode.QUESTION_MIN)
             {
-
+                if(CorrectQuestionCount >= settings.QuestionsCount)
+                {
+                    QuizState = EQuizState.WON;
+                }
             }
             else if (settings.QuizMode == AppSettingsModel.EQuizMode.TIMEOUT)
             {
-
+                if(leftTimeInSeconds <= 0)
+                {
+                    QuizState = EQuizState.WON;
+                }
             }
         }
-        /*public EQuizState GetState()
+        public EQuizState GetState()
         {
-            UpdateState();
-        }/
-
+            return QuizState;
+        }
         public int GetSecondsLeft()
         {
             if(leftTimeInSeconds >= 0)
                 return leftTimeInSeconds;
 
             return 0;
+        }
+        public void StopTimer()
+        {
+            timer.Stop();
         }
     }
 }

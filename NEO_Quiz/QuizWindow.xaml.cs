@@ -77,29 +77,20 @@ namespace NEO_Quiz
 
             CheckAnswerButton.Visibility = Visibility.Collapsed;
             NextQuestionButton.Visibility = Visibility.Visible;
+
+            PrepareHeader();
         }
         private void NextQuestion_Clicked(object sender, RoutedEventArgs e)
         {
-            /*if(!quizManager.IsEnd())
+            if(quizManager.GetState() == QuizManager.EQuizState.ACTIVE && quizManager.HasNextQuestion())
             {
                 new QuizWindow(quizManager).Show();
+                Close();
             }
             else
             {
-                if (settings.QuizMode == AppSettingsModel.EQuizMode.QUESTION_MAX)
-                {
-                    new QuizWonDialog(quizManager).ShowDialog();
-                }
-                else if (settings.QuizMode == AppSettingsModel.EQuizMode.QUESTION_MIN)
-                {
-                    new QuizWonDialog(quizManager).ShowDialog();
-                }
-                else if (settings.QuizMode == AppSettingsModel.EQuizMode.TIMEOUT)
-                {
-                    new QuizWonDialog(quizManager).ShowDialog();
-                }
+                OnEnd();
             }
-            Close();*/
         }
         public void CancelQuiz_Clicked(object sender, RoutedEventArgs e)
         {
@@ -165,21 +156,51 @@ namespace NEO_Quiz
         public void OnTimerTick(object sender, EventArgs e)
         {
             UpdateTimerHeader();
+            if(quizManager.GetSecondsLeft() <= 0)
+            {
+                quizManager.StopTimer();
+                OnEnd();
+            }
         }
         private void CheckAnswer()
         {
+
             AccessText[] tmpRadio = { Answer1Text, Answer2Text, Answer3Text, Answer4Text };
             tmpRadio[Question.CorrectAnswer - 1].Foreground = new SolidColorBrush(Colors.Green);
 
-            if (Question.CorrectAnswer == checkedAnswerId)
-            {
-                quizManager.OnCorrect();
-            }
-            else
+            if (!quizManager.CheckAnswer(checkedAnswerId))
             {
                 tmpRadio[checkedAnswerId - 1].Foreground = new SolidColorBrush(Colors.Red);
             }
             tmpRadio[Question.CorrectAnswer - 1].FontWeight = FontWeights.Heavy;
         } 
+        private void OnEnd()
+        {
+            QuizWonDialog.EQuizWonMethod wonMethod = QuizWonDialog.EQuizWonMethod.MAX_QUESTION_LIMIT_REACHED;
+
+            if (quizManager.GetMode() == AppSettingsModel.EQuizMode.QUESTION_MAX)
+            {
+                wonMethod = QuizWonDialog.EQuizWonMethod.MAX_QUESTION_LIMIT_REACHED;
+            }
+            else if (quizManager.GetMode() == AppSettingsModel.EQuizMode.QUESTION_MIN)
+            {
+                wonMethod = QuizWonDialog.EQuizWonMethod.MIN_QUESTION_REACHED;
+            }
+            else if (quizManager.GetMode() == AppSettingsModel.EQuizMode.TIMEOUT)
+            {
+                if (!quizManager.HasNextQuestion())
+                {
+                    quizManager.StopTimer();
+                    wonMethod = QuizWonDialog.EQuizWonMethod.QUESTIONS_LIMIT_END;
+                }
+                else
+                {
+                    wonMethod = QuizWonDialog.EQuizWonMethod.TIME_END;
+                }
+            }
+
+            new QuizWonDialog(wonMethod, quizManager).ShowDialog();
+            Close();
+        }
     }
 }

@@ -232,11 +232,74 @@ namespace NEO_Quiz.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Liczba poprawnych odpowiedzi: {0}.
+        /// </summary>
+        public static string QuizWonMaxModeInfoContent {
+            get {
+                return ResourceManager.GetString("QuizWonMaxModeInfoContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Rozwiązałeś quiz!.
+        /// </summary>
+        public static string QuizWonMaxModeInfoHeader {
+            get {
+                return ResourceManager.GetString("QuizWonMaxModeInfoHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Poprawnych odpowiedzi {0}. Wyświetlono pytań {1}. .
+        /// </summary>
+        public static string QuizWonMinModeInfoContent {
+            get {
+                return ResourceManager.GetString("QuizWonMinModeInfoContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Rozwiązałeś quiz!.
+        /// </summary>
+        public static string QuizWonMinModeInfoHeader {
+            get {
+                return ResourceManager.GetString("QuizWonMinModeInfoHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Odpowiedziałeś poprawnie na {0} pytań..
+        /// </summary>
+        public static string QuizWonTimeEndInfoContent {
+            get {
+                return ResourceManager.GetString("QuizWonTimeEndInfoContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Koniec czasu!.
+        /// </summary>
+        public static string QuizWonTimeEndInfoHeader {
+            get {
+                return ResourceManager.GetString("QuizWonTimeEndInfoHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Twój czas:.
         /// </summary>
         public static string QuizWonTimeInfo {
             get {
                 return ResourceManager.GetString("QuizWonTimeInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Gratulujemy. Odpowiedziałeś na wszystkie pytania..
+        /// </summary>
+        public static string QuizWonTimeQuestonEndInfoHeader {
+            get {
+                return ResourceManager.GetString("QuizWonTimeQuestonEndInfoHeader", resourceCulture);
             }
         }
         

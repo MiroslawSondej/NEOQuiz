@@ -8,7 +8,7 @@
         WindowStyle="None"
         FontFamily="DejaVu Sans"
         xmlns:p="clr-namespace:NEO_Quiz.Properties"    
-        Height="300" Width="500"
+        Height="300" Width="560"
         WindowStartupLocation="CenterScreen">
 
     <Grid>
@@ -20,32 +20,20 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24">
             <Label.Content>
-                <AccessText TextWrapping="Wrap" Text="{x:Static p:Resources.QuizWonInfo}" />
+                <AccessText TextWrapping="Wrap" Text="PlaceHolder1" x:Name="HeaderInfo" />
             </Label.Content>
         </Label>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <Label x:Name="TimeInfoLabel"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">
-                <Label.Content>
-                    <AccessText TextWrapping="Wrap" Text="{x:Static p:Resources.QuizWonTimeInfo}" />
-                </Label.Content>
-            </Label>
-            <Label x:Name="CorrectInfoLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Visibility="Collapsed">
-                <Label.Content>
-                    <AccessText TextWrapping="Wrap" Text="{x:Static p:Resources.QuizWonAnswerCorrect}" />
-                </Label.Content>
-            </Label>
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">
-                <Label.Content>
-                    <AccessText x:Name="AdditionalInfoLabel"  TextWrapping="Wrap" Text=""/>
-                </Label.Content>
-            </Label>
-        </StackPanel>
-        
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="1">
+            <Label.Content>
+                <AccessText x:Name="ContentInfo" TextWrapping="Wrap" Text="PlaceHolder2" />
+            </Label.Content>
+        </Label>
 
-        <Button Content="Ok" HorizontalAlignment="Stretch" Margin="20, 30" VerticalAlignment="Stretch" FontSize="20" Grid.Column="0" Grid.Row="2" Click="OkButton_Clicked" />
+
+        <Button Content="Ok" HorizontalAlignment="Stretch" Margin="50, 30" VerticalAlignment="Stretch" FontSize="20" Grid.Column="0" Grid.Row="2" Click="OkButton_Clicked" />
 
     </Grid>
 </Window>

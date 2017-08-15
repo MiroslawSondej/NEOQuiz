@@ -192,4 +192,25 @@
   <data name="QuizWonTimeInfo" xml:space="preserve">
     <value>Your time:</value>
   </data>
+  <data name="QuizWonMaxModeInfoContent" xml:space="preserve">
+    <value>Count of correct answers: {0}.</value>
+  </data>
+  <data name="QuizWonMaxModeInfoHeader" xml:space="preserve">
+    <value>You resolved the quiz.</value>
+  </data>
+  <data name="QuizWonMinModeInfoContent" xml:space="preserve">
+    <value>Count of correct answers: {0}. Displayed questions: {1}.</value>
+  </data>
+  <data name="QuizWonMinModeInfoHeader" xml:space="preserve">
+    <value>You resolved the quiz.</value>
+  </data>
+  <data name="QuizWonTimeEndInfoContent" xml:space="preserve">
+    <value>Count of correct answers: {0}.</value>
+  </data>
+  <data name="QuizWonTimeEndInfoHeader" xml:space="preserve">
+    <value>End of time!</value>
+  </data>
+  <data name="QuizWonTimeQuestonEndInfoHeader" xml:space="preserve">
+    <value>Congratulations. You answered all questions.</value>
+  </data>
 </root>
