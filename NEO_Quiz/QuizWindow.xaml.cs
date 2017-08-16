@@ -131,7 +131,7 @@ namespace NEO_Quiz
             {
                 try
                 {
-                    var path = System.IO.Path.Combine(Environment.CurrentDirectory, "Images", "test.jpg");
+                    var path = System.IO.Path.Combine(Environment.CurrentDirectory, "Images", Question.OptionalQuestionImageName);
                     ImageSource imgSource = new BitmapImage(new Uri(path));
 
                     QuestionImage.BeginInit();
