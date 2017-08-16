@@ -239,7 +239,7 @@ namespace NEO_Quiz
             
             foreach(string file in settings.ResourcesFile)
             {
-                if(Regex.IsMatch(file, ".+(." + currentLanguage + ".xml)"))
+                if(Regex.IsMatch(file, ".+(." + currentLanguage + ".xml)$"))
                 {
                     fileList.Add(file);
                 }

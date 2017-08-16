@@ -9,6 +9,7 @@
         MinWidth="300" MinHeight="200"
         WindowStyle="None"
         WindowState="Maximized"
+        
         FontFamily="DejaVu Sans"
         FontSize="14"
         xmlns:p = "clr-namespace:NEO_Quiz.Properties">
@@ -23,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="80" />
             <RowDefinition Height="25" />
@@ -43,15 +44,22 @@
                Width="Auto" Height="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                FontSize="18" />
         </StackPanel>
-        <StackPanel Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="1"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Orientation="Vertical">
-            <Label>
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0">
                 <Label.Content>
-                    <AccessText x:Name="QuestionText" FontSize="14" TextWrapping="Wrap" Text="{x:Static p:Resources.QuestionPlaceHolder}"/>
+                    <AccessText x:Name="QuestionText" HorizontalAlignment="Stretch" FontSize="14" TextWrapping="Wrap" Text="{x:Static p:Resources.QuestionPlaceHolder}"/>
                 </Label.Content>
             </Label>
-            <Image x:Name="QuestionImage"/>
-        </StackPanel>
+
+            <Image Grid.Row="1" Stretch="Uniform" x:Name="QuestionImage" HorizontalAlignment="Stretch"
+           VerticalAlignment="Stretch" Source="Resources\placeholder.png" Visibility="Collapsed" />
+        </Grid>
 
         <StackPanel Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="2" Margin="20">
             <RadioButton x:Name="Answer1" GroupName="AnswerRadioGroup" HorizontalAlignment="Stretch" Margin="0, 10" Checked="OnAnyAnswer_Checked">

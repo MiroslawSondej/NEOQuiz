@@ -2,6 +2,7 @@
 using NEO_Quiz.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,8 +52,6 @@ namespace NEO_Quiz
         {
             if(!CheckAnswerButton.IsEnabled)
                 CheckAnswerButton.IsEnabled = true;
-
-            Console.WriteLine(((RadioButton)sender).Name);
 
             if(((RadioButton)sender).Name == Answer1.Name)
             {
@@ -127,6 +126,25 @@ namespace NEO_Quiz
             Answer2Text.Text = Question.Answer[1];
             Answer3Text.Text = Question.Answer[2];
             Answer4Text.Text = Question.Answer[3];
+
+            if(Question.HasOptionalQuestionImage)
+            {
+                try
+                {
+                    var path = System.IO.Path.Combine(Environment.CurrentDirectory, "Images", "test.jpg");
+                    ImageSource imgSource = new BitmapImage(new Uri(path));
+
+                    QuestionImage.BeginInit();
+                    QuestionImage.Source = imgSource;
+                    QuestionImage.EndInit();
+                    QuestionImage.Visibility = Visibility.Visible;
+
+                }
+                catch
+                {
+                    Console.WriteLine("Image not found. Source: " + Question.OptionalQuestionImageName);
+                }
+            }
         }
         private void UpdateQuestionMinHeader()
         {
