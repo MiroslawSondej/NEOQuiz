@@ -140,7 +140,22 @@ namespace NEO_Quiz.QuestionEditor
             }
             QuestionDataGrid.Items.Refresh();
         }
+        private void ExportToOldFileMenuItem_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (currentQuestionFile != null)
+            {
+                Microsoft.Win32.SaveFileDialog dialog = new Microsoft.Win32.SaveFileDialog();
+                dialog.DefaultExt = ".txt";
+                dialog.Filter = "Stary format | *.txt";
+                bool? result = dialog.ShowDialog();
 
+                if (result == true)
+                {
+                    string filename = dialog.FileName;
+                    ExportToOldFormat(filename);
+                }
+            }
+        }
         private void ExitFileMenuItem_Clicked(object sender, RoutedEventArgs e)
         {
             SaveFileMenuItem_Clicked(sender, e);
@@ -244,6 +259,34 @@ namespace NEO_Quiz.QuestionEditor
             {
                 return new List<QuestionModel>();
             }
+        }
+        private void ExportToOldFormat(string filename)
+        {
+            FileStream file = new FileStream(filename, FileMode.Create);
+            StreamWriter writer = new StreamWriter(file);
+            
+            // Question to ask count
+            writer.WriteLine("5");
+
+            List<QuestionModel> questionToExport = Question.Where(q => q.HasOptionalQuestionImage == false).ToList();
+
+            // Count of all questions
+            writer.WriteLine(questionToExport.Count);
+
+            foreach(QuestionModel q in questionToExport)
+            {
+                writer.WriteLine(q.QuestionText);
+
+                for (int i = 0; i < 4; i++)
+                {
+                    writer.WriteLine(q.Answer[i]);
+                }
+
+                writer.WriteLine(q.CorrectAnswer);
+            }
+
+            writer.Close();
+            file.Close();
         }
     }
 }
