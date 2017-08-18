@@ -46,14 +46,13 @@ namespace NEO_Quiz
         {
             CurrentQuestionNumber = 0;
             CorrectQuestionCount = 0;
-
             string[] files = settingsManager.GetQuestionsFileList();
-            foreach(string file in files)
+            foreach (string file in files)
             {
                 QuestionList.AddRange(QuestionManager.LoadQuestions(file));
             }
 
-            if(settings.QuizMode == AppSettingsModel.EQuizMode.TIMEOUT)
+            if (settings.QuizMode == AppSettingsModel.EQuizMode.TIMEOUT)
             {
                 leftTimeInSeconds = (int)(settings.MaxTime * 60f);
                 InitializeTimer();
@@ -84,7 +83,7 @@ namespace NEO_Quiz
         }
         public bool HasNextQuestion()
         {
-            if(QuestionList.Count > 0)
+            if (QuestionList.Count > 0)
             {
                 return true;
             }
@@ -92,9 +91,9 @@ namespace NEO_Quiz
         }
         public QuestionModel NextQuestion()
         {
-            if(QuestionList.Count == 0)
+            if (QuestionList.Count == 0)
             {
-                if(QuestionUsed.Count > 0)
+                if (QuestionUsed.Count > 0)
                 {
                     QuestionList.Clear();
                     QuestionList.AddRange(QuestionUsed);
@@ -143,23 +142,23 @@ namespace NEO_Quiz
         }
         private void UpdateState()
         {
-            if(settings.QuizMode == AppSettingsModel.EQuizMode.QUESTION_MAX)
+            if (settings.QuizMode == AppSettingsModel.EQuizMode.QUESTION_MAX)
             {
-               if(CurrentQuestionNumber + 1 >= settings.QuestionsCount)
+                if (CurrentQuestionNumber + 1 >= settings.QuestionsCount)
                 {
                     QuizState = EQuizState.WON;
                 }
             }
             else if (settings.QuizMode == AppSettingsModel.EQuizMode.QUESTION_MIN)
             {
-                if(CorrectQuestionCount >= settings.QuestionsCount)
+                if (CorrectQuestionCount >= settings.QuestionsCount)
                 {
                     QuizState = EQuizState.WON;
                 }
             }
             else if (settings.QuizMode == AppSettingsModel.EQuizMode.TIMEOUT)
             {
-                if(leftTimeInSeconds <= 0)
+                if (leftTimeInSeconds <= 0)
                 {
                     QuizState = EQuizState.WON;
                 }
@@ -171,7 +170,7 @@ namespace NEO_Quiz
         }
         public int GetSecondsLeft()
         {
-            if(leftTimeInSeconds >= 0)
+            if (leftTimeInSeconds >= 0)
                 return leftTimeInSeconds;
 
             return 0;

@@ -19,6 +19,7 @@ namespace NEO_Quiz
         private const int DEFAULT_QUESTIONS_COUNT = 10;
         private const float DEFAULT_MAX_TIME = 30f;
         private const string DEFAULT_RESOURCE_PATH = "Questions/";
+        private const string DEFAULT_IMAGES_PATH = "Images/";
         private const string DEFAULT_SETTINGS_FILE_NAME = "settings.xml";
         //------------------
         private AppSettingsModel settings;
@@ -29,6 +30,20 @@ namespace NEO_Quiz
             {
                 CreateDefaultSettings(DEFAULT_SETTINGS_FILE_NAME);
             }
+
+            try
+            {
+                if (!Directory.Exists(DEFAULT_RESOURCE_PATH))
+                {
+                    Directory.CreateDirectory(DEFAULT_RESOURCE_PATH);
+                }
+                if (!Directory.Exists(DEFAULT_IMAGES_PATH))
+                {
+                    Directory.CreateDirectory(DEFAULT_IMAGES_PATH);
+                }
+            }
+            catch { }
+
             settings.ResourcesFile = GetResourceFilesList();
             UpdateLanguage();
         }

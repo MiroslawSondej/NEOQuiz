@@ -151,6 +151,15 @@ namespace NEO_Quiz.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nie znaleziono pliku zasobów lub plik pusty..
+        /// </summary>
+        public static string NoResourcesFileFound {
+            get {
+                return ResourceManager.GetString("NoResourcesFileFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Maksimum pytań.
         /// </summary>
         public static string QUESTION_MAX {

@@ -11,7 +11,7 @@
         WindowState="Maximized"
         
         FontFamily="DejaVu Sans"
-        FontSize="14"
+        FontSize="16"
         xmlns:p = "clr-namespace:NEO_Quiz.Properties">
     
     <Grid Margin="20">
@@ -53,7 +53,7 @@
 
             <Label Grid.Row="0">
                 <Label.Content>
-                    <AccessText x:Name="QuestionText" HorizontalAlignment="Stretch" FontSize="14" TextWrapping="Wrap" Text="{x:Static p:Resources.QuestionPlaceHolder}"/>
+                    <AccessText x:Name="QuestionText" HorizontalAlignment="Stretch" FontSize="16" TextWrapping="Wrap" Text="{x:Static p:Resources.QuestionPlaceHolder}"/>
                 </Label.Content>
             </Label>
 

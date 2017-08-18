@@ -1,6 +1,8 @@
-﻿using NEO_Quiz.Models;
+﻿using NEO_Quiz.Dialogs;
+using NEO_Quiz.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +43,14 @@ namespace NEO_Quiz
             QuizManager manager = new QuizManager(settingsManager);
             manager.Begin();
 
-            new QuizWindow(manager).Show();
+            if(manager.HasNextQuestion())
+            {
+                new QuizWindow(manager).Show();
+            }
+            else
+            {
+                new NoResourcesDialog().ShowDialog();
+            }
         }
         private void SettingsButton_Clicked(object sender, RoutedEventArgs e)
         {

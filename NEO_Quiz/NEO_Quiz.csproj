@@ -57,6 +57,9 @@
     <Compile Include="Dialogs\CancelQuizDialog.xaml.cs">
       <DependentUpon>CancelQuizDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\NoResourcesDialog.xaml.cs">
+      <DependentUpon>NoResourcesDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\QuizWonDialog.xaml.cs">
       <DependentUpon>QuizWonDialog.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,10 @@
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Dialogs\CancelQuizDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\NoResourcesDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -219,4 +219,7 @@
   <data name="QuizWonTimeQuestonEndInfoHeader" xml:space="preserve">
     <value>Gratulujemy. Odpowiedziałeś na wszystkie pytania.</value>
   </data>
+  <data name="NoResourcesFileFound" xml:space="preserve">
+    <value>Nie znaleziono pliku zasobów lub plik pusty.</value>
+  </data>
 </root>
