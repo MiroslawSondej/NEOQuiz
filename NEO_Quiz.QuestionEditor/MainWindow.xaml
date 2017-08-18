@@ -23,6 +23,7 @@
                     <MenuItem Header="_Zapisz" Click="SaveFileMenuItem_Clicked" />
                     <Separator />
                     <MenuItem Header="_Otwórz stary format" Click="OpenOldFileMenuItem_Clicked" />
+                    <MenuItem Header="_Eksportuj do starego formatu" Click="ExportToOldFileMenuItem_Clicked" />
                     <Separator />
                     <MenuItem Header="_Wyjście" Click="ExitFileMenuItem_Clicked" />
                 </MenuItem>
